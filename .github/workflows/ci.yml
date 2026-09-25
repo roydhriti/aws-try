@@ -19,5 +19,8 @@ jobs:
       - name: Build the Docker image
         run: docker build -t cicd-pipeline:latest .
 
+      - name: Tag the Docker image
+        run: docker tag cicd-pipeline:latest $DOCKER_USERNAME/cicd-pipeline:latest
+
       - name: Push to DockerHub
-        run: docker push dhriti240/cicd-pipeline:latest
+        run: docker push $DOCKER_USERNAME/cicd-pipeline:latest
